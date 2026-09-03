@@ -166,7 +166,7 @@ if __name__ == '__main__':
 
     # Kirim conversation handler
     add_handler = ConversationHandler(
-        entry_points=[MessageHandler(filters.Regex("^➕ Кирим \(Qo'shish\)$"), start_add)],
+        entry_points=[MessageHandler(filters.Regex(r"^➕ Кирим \(Qo'shish\)$"), start_add)]
         states={
             SELECT_PRODUCT_ADD: [MessageHandler(filters.TEXT & ~filters.COMMAND, select_product_add)],
             AMOUNT_ADD: [MessageHandler(filters.TEXT & ~filters.COMMAND, process_add)],
@@ -176,7 +176,7 @@ if __name__ == '__main__':
 
     # Sotuv conversation handler
     sub_handler = ConversationHandler(
-        entry_points=[MessageHandler(filters.Regex("^➖ Сотилган \(Airish\)$"), start_sub)],
+        entry_points=[MessageHandler(filters.Regex(r"^➖ Сотилган \(Airish\)$"), start_sub)],
         states={
             SELECT_PRODUCT_SUB: [MessageHandler(filters.TEXT & ~filters.COMMAND, select_product_sub)],
             AMOUNT_SUB: [MessageHandler(filters.TEXT & ~filters.COMMAND, process_sub)],
